@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, Star } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import ContactForm from "./ContactForm";
 
 const Courses = () => {
-  const navigate = useNavigate();
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
   
   const courses = [
     {
@@ -141,7 +143,10 @@ const Courses = () => {
                 variant={course.popular ? "hero" : "default"} 
                 className="w-full" 
                 size="lg"
-                onClick={() => navigate(`/courses/${course.title.toLowerCase().replace(/\s+/g, '-').replace('&', '').replace('mastery', 'dsa')}`)}
+                onClick={() => {
+                  setSelectedCourse(course.title);
+                  setIsContactFormOpen(true);
+                }}
               >
                 Enroll Now
               </Button>
@@ -153,11 +158,18 @@ const Courses = () => {
           <p className="text-muted-foreground mb-4">
             Not sure which course is right for you?
           </p>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => setIsContactFormOpen(true)}>
             Get Free Consultation
           </Button>
         </div>
       </div>
+      
+      <ContactForm 
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+        formType={selectedCourse ? "enrollment" : "consultation"}
+        courseName={selectedCourse}
+      />
     </section>
   );
 };

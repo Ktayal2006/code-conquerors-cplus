@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-coding.jpg";
-import { useNavigate } from "react-router-dom";
+import ContactForm from "./ContactForm";
 
 const Hero = () => {
-  const navigate = useNavigate();
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   const scrollToCourses = () => {
     document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
@@ -34,7 +35,7 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="cta" size="xl" onClick={() => navigate('/#contact')}>
+          <Button variant="cta" size="xl" onClick={() => setIsContactFormOpen(true)}>
             Start Your Journey
           </Button>
           <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary" onClick={scrollToCourses}>
@@ -58,6 +59,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      <ContactForm 
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+        formType="journey"
+      />
     </section>
   );
 };
