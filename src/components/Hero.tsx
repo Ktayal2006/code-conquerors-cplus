@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-coding.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const scrollToCourses = () => {
+    document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -27,10 +34,10 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="cta" size="xl">
+          <Button variant="cta" size="xl" onClick={() => navigate('/#contact')}>
             Start Your Journey
           </Button>
-          <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary">
+          <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary" onClick={scrollToCourses}>
             View Courses
           </Button>
         </div>

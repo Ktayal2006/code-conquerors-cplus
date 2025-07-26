@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Code, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -33,11 +34,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">About Us</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Courses</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Success Stories</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Faculty</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Placements</a></li>
+              <li><Link to="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">About Us</Link></li>
+              <li><Link to="/#courses" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Courses</Link></li>
+              <li><Link to="/success-stories" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Success Stories</Link></li>
+              <li><Link to="/faculty" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Faculty</Link></li>
+              <li><Link to="/placements" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Placements</Link></li>
             </ul>
           </div>
 
@@ -45,11 +46,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Courses</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">DSA Fundamentals</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Advanced DSA</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Placement Bootcamp</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Mock Interviews</a></li>
-              <li><a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">System Design</a></li>
+              <li><Link to="/courses/dsa-fundamentals" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">DSA Fundamentals</Link></li>
+              <li><Link to="/courses/advanced-dsa" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Advanced DSA</Link></li>
+              <li><Link to="/courses/placement-bootcamp" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Placement Bootcamp</Link></li>
+              <li><Link to="/#courses" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Mock Interviews</Link></li>
+              <li><Link to="/#courses" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">System Design</Link></li>
             </ul>
           </div>
 
@@ -82,15 +83,15 @@ const Footer = () => {
               © 2024 CodeMaster Institute. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              <Link to="/privacy-policy" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
+              </Link>
+              <Link to="/cookie-policy" className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

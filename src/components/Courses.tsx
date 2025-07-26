@@ -1,8 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
+  const navigate = useNavigate();
+  
   const courses = [
     {
       title: "DSA Fundamentals",
@@ -63,7 +66,7 @@ const Courses = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="courses" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
@@ -138,6 +141,7 @@ const Courses = () => {
                 variant={course.popular ? "hero" : "default"} 
                 className="w-full" 
                 size="lg"
+                onClick={() => navigate(`/courses/${course.title.toLowerCase().replace(/\s+/g, '-').replace('&', '').replace('mastery', 'dsa')}`)}
               >
                 Enroll Now
               </Button>
